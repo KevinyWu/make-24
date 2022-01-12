@@ -59,7 +59,7 @@ float parser::evaluate(std::string tokens) {
             ops.push(tokens[i]);
         }
         // Current token is a number, push it to stack for numbers
-        else if(isdigit(tokens[i])) {
+        else if (isdigit(tokens[i])) {
             float val = 0;
             // May be more than one digit in number
             while (i < tokens.length() && isdigit(tokens[i])) {

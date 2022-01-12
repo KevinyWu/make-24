@@ -16,9 +16,9 @@ class card
 public:
     card(); // Initialize a card with default values
     card(suits, int); // Initialize a card with given values
-protected:
     int rank;
     suits suit;
+protected:
     // Output a card
     friend void print_card(card c);
 };

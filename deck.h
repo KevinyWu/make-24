@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <iterator>
 #include <iostream>
+#include <vector>
 
 
 // 52 card deck (no jokers)
@@ -18,7 +19,7 @@ public:
     void shuffle_deck(); // Shuffles the deck
     bool is_empty() const; // Checks if deck is empty
     card draw(); // Draws from top of deck
-    void print_draw(int); // Draws n cards from deck without replacement
+    std::vector<int> print_draw(int); // Draws n cards from deck without replacement and stores in vector
 protected:
     card cards[52]; // Holds a deck
     int top_card; // Index one greater than last card

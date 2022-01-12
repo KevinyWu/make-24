@@ -3,6 +3,7 @@
 //
 #include "deck.h"
 #include "parser.h"
+#include "solver.h"
 
 
 int main() {
@@ -13,15 +14,23 @@ int main() {
     std::string s;
     while (true) {
         d.shuffle_deck();
-        d.print_draw(4);
-        std::cout << "Enter expression:\n";
+        // Checks if hand is valid
+        std::vector<int> hand = d.print_draw(4);
+        if (!solver::solve(hand)) {
+            continue;
+        }
+        // Takes user input
+        std::cout << "Enter expression: ";
         std::cin >> s;
         float r = parser::evaluate(s);
+        // Checks if result is valid
         std::cout << "Result: " << r << "\n";
-        if (r > 23.999 && r < 24.001)
+        if (abs(24.0 - r) < 0.0001) {
             std::cout << "Good job!" << "\n";
-        else
+        }
+        else {
             std::cout << "Try again." << "\n";
+        }
         break;
     }
     return 0;

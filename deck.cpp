@@ -38,25 +38,26 @@ bool deck::is_empty() const {
 // Draws from top of deck
 card deck::draw() {
     if (is_empty()) {
-        std::cout << "Empty deck!";
-        exit(-1);
+        std::cerr << "Empty deck!";
     }
     return cards[--top_card];
 }
 
 
 // Draws n cards from deck without replacement
-void deck::print_draw(int n) {
+std::vector<int> deck::print_draw(int n) {
     if (n < 0 || n > 52) {
-        std::cout << "Invalid number of cards!";
-        exit(-1);
+        std::cerr << "Invalid number of cards!";
     }
+    std::vector<int> hand;
     for (int i = 0; i < n; i++) {
         card c = draw();
+        hand.push_back(c.rank);
         print_card(c);
         if (i != n - 1) {std::cout << ", ";}
         else {std::cout << "\n";}
     }
     shuffle_deck();
     top_card = 52;
+    return hand;
 }

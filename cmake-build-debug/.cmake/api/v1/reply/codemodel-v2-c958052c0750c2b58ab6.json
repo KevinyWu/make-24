@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "24_card_game::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-24_card_game-Debug-f283af30420575572d43.json",
+					"jsonFile" : "target-24_card_game-Debug-eaf2c0089c404091484c.json",
 					"name" : "24_card_game",
 					"projectIndex" : 0
 				}
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/kevinwu/github/24_card_game/cmake-build-debug",
-		"source" : "/Users/kevinwu/github/24_card_game"
+		"build" : "/Users/kevinwu/github/make_24/cmake-build-debug",
+		"source" : "/Users/kevinwu/github/make_24"
 	},
 	"version" : 
 	{
