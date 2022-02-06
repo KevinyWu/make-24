@@ -4,7 +4,7 @@ It allows the four functions (+, −, ×, ÷) and unlimited parentheses.
 The four cards will always have a valid solution, as invalid combinations are filtered out.
 
 To install the game, follow these steps
-1. Download this repository to your local machine by typing `git clone https://github.com/KevinyWu/make_24.git` in the terminal or by downloading from "Code -> Download ZIP"
+1. Open your terminal and type `git clone https://github.com/KevinyWu/make_24.git` in the terminal or by downloading from "Code -> Download ZIP"
 2. Navigate inside the directory `make_24` in your terminal
 3. Compile the code by typing `make play`, which 
 4. Run the game by typing `.\play`
