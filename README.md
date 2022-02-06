@@ -1,6 +1,6 @@
 # 24 Card Game
 A console version of the card game 24, including a solving algorithm. 
-The game allows the four functions (+, −, ×, ÷) and unlimited parentheses.
+It allows the four functions (+, −, ×, ÷) and unlimited parentheses.
 The four given cards will always have a valid solution, as invalid combinations are filtered out.
 
 To install the game, follow these steps
