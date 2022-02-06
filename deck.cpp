@@ -84,11 +84,13 @@ void deck::print_hand(std::vector<card> hand) {
 // Draws a hand of 4 valid cards and prints them
 std::vector<int> deck::draw4(deck d) {
     d.shuffle_deck();
-    std::vector<card> card_hand = d.draw_n(4);
-    std::vector<int> hand = d.get_hand_values(card_hand);
-    if (!solver::solve(hand)) {
-        draw4(d);
+    std::vector<card> card_hand;
+    std::vector<int> hand;
+    do {
+        card_hand = d.draw_n(4);
+        hand = d.get_hand_values(card_hand);
     }
+    while (!solver::solve(hand));
     d.print_hand(card_hand);
     return hand;
 }
