@@ -38,7 +38,7 @@ std::string play_again() {
 
 
 int main() {
-    std::cout << "Welcome to the classic card game 24!\n"
+    std::cout << "\n\n\nWelcome to the classic card game 24!\n"
                  "You are given four cards from a standard 52-card deck.\n"
                  "Use the operations +, -, *, /, and () to make 24.\n"
                  "If you would like to quit the game at any time, press CTRL + C.\n"
