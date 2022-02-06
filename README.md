@@ -1,7 +1,7 @@
 # 24 Card Game
 A console version of the card game 24, including a solving algorithm. 
 It allows the four functions (+, −, ×, ÷) and unlimited parentheses.
-The four given cards will always have a valid solution, as invalid combinations are filtered out.
+The four cards will always have a valid solution, as invalid combinations are filtered out.
 
 To install the game, follow these steps
 1. Download this repository to your local machine by typing `git clone https://github.com/KevinyWu/make_24.git` in the terminal or by downloading from "Code -> Download ZIP"
