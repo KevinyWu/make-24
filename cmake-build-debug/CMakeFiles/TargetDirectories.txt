@@ -1,3 +1,0 @@
-/Users/kevinwu/github/make_24/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/kevinwu/github/make_24/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/kevinwu/github/make_24/cmake-build-debug/CMakeFiles/24_card_game.dir

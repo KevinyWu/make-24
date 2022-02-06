@@ -19,8 +19,7 @@ public:
     int rank;
     suits suit;
 protected:
-    // Output a card
-    friend void print_card(card c);
+    friend void print_card(card c); // Output a card
 };
 
 

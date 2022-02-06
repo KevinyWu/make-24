@@ -3,6 +3,7 @@
 //
 #include "card.h"
 #include "deck.h"
+#include "solver.h"
 
 
 // Construct a 52 card deck
@@ -45,19 +46,49 @@ card deck::draw() {
 
 
 // Draws n cards from deck without replacement
-std::vector<int> deck::print_draw(int n) {
+std::vector<card> deck::draw_n(int n) {
     if (n < 0 || n > 52) {
         std::cerr << "Invalid number of cards!";
     }
-    std::vector<int> hand;
+    std::vector<card> hand;
     for (int i = 0; i < n; i++) {
         card c = draw();
-        hand.push_back(c.rank);
-        print_card(c);
-        if (i != n - 1) {std::cout << ", ";}
-        else {std::cout << "\n";}
+        hand.push_back(c);
     }
     shuffle_deck();
     top_card = 52;
+    return hand;
+}
+
+
+// Extracts numerical value from a hand
+std::vector<int> deck::get_hand_values(std::vector<card> hand) {
+    std::vector<int> rtn;
+    for (int i = 0; i < hand.size(); i++) {
+        rtn.push_back(hand[i].rank);
+    }
+    return rtn;
+}
+
+
+// Print a hand
+void deck::print_hand(std::vector<card> hand) {
+    for (int i = 0; i < hand.size(); i++) {
+        print_card(hand[i]);
+        if (i != hand.size() - 1) {std::cout << ", ";}
+        else {std::cout << "\n";}
+    }
+}
+
+
+// Draws a hand of 4 valid cards and prints them
+std::vector<int> deck::draw4(deck d) {
+    d.shuffle_deck();
+    std::vector<card> card_hand = d.draw_n(4);
+    std::vector<int> hand = d.get_hand_values(card_hand);
+    if (!solver::solve(hand)) {
+        draw4(d);
+    }
+    d.print_hand(card_hand);
     return hand;
 }

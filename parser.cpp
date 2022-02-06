@@ -13,6 +13,7 @@ int parser::precedence(char op) {
     return 0;
 }
 
+
 // Perform arithmetic operations
 float parser::apply_op(float a, float b, char op) {
     switch(op) {
@@ -25,24 +26,43 @@ float parser::apply_op(float a, float b, char op) {
 }
 
 
-// Checks if a character is valid
-bool parser::valid_char(char c) {
-    std::string valid = "+-*/0123456789() ";
-    return valid.find(c) >= 0;
-}
-
-
 // Checks if a string is valid
-bool parser::valid_string(const std::string& tokens) {
-    return std::all_of(tokens.begin(), tokens.end(), valid_char);
+bool parser::valid_string(const std::string& tokens, std::vector<int> hand) {
+    std::vector<int> nums;
+    std::vector<char> ops;
+
+    // fills nums with numerical values and ops with other characters
+    for (int i = 0; i < tokens.length(); i++) {
+        if (isdigit(tokens[i])) {
+            std::string n = "";
+            while(isdigit(tokens[i])) {
+                n += tokens[i++];
+            }
+            nums.push_back(std::stoi(n));
+        }
+        ops.push_back(tokens[i]);
+    }
+    // Check if all cards are used and no others
+    std::sort(nums.begin(), nums.end());
+    std::sort(hand.begin(), hand.end());
+    if (nums != hand) {
+        std::cerr << "Use all cards and no others! Please try again:\n";
+        return false;
+    }
+    // Check if other characters are valid operations
+    std::string valid = "+-*/() ";
+    for(int i = 0; i < ops.size()-1; i++) {
+        if (valid.find(ops[i]) == std::string::npos) {
+            std::cerr << "Invalid mathematical expression! Please try again:\n";
+            return false;
+        }
+    }
+    return true;
 }
 
 
 // Returns value of expression after evaluation
 float parser::evaluate(std::string tokens) {
-    if (!valid_string(tokens)) {
-        std::cerr << "Invalid mathematical expression! Please try again\n";
-    }
     int i;
     // Stack to store values
     std::stack <float> values;
