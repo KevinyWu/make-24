@@ -49,13 +49,21 @@ bool parser::valid_string(const std::string& tokens, std::vector<int> hand) {
         std::cerr << "Use all cards and no others! Please try again:\n";
         return false;
     }
-    // Check if other characters are valid operations
+    // Check if other characters are valid operations and if there are enough operations
     std::string valid = "+-*/() ";
+    int num_ops = 0;
     for(int i = 0; i < ops.size()-1; i++) {
         if (valid.find(ops[i]) == std::string::npos) {
             std::cerr << "Invalid mathematical expression! Please try again:\n";
             return false;
         }
+        else if (ops[i] == '+' || ops[i] == '-' || ops[i] == '*' || ops[i] == '/') {
+            num_ops++;
+        }
+    }
+    if (num_ops < 3) {
+        std::cerr << "Not enough operations! Please try again:\n";
+        return false;
     }
     return true;
 }
