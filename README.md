@@ -1,4 +1,7 @@
 # Make 24!
+
+<img src="https://github.com/KevinyWu/KevinyWu/blob/main/images/cards.png" alt="drawing" width="600"/>
+
 A console version of the card game 24, including a solving algorithm. 
 It allows the four functions (+, −, ×, ÷) and unlimited parentheses.
 The four cards will always have a valid solution, as invalid combinations are filtered out.
